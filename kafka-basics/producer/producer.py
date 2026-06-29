@@ -2,8 +2,8 @@ from confluent_kafka import Producer
 
 config = {
     "bootstrap.servers": "localhost:9092",
-    "batch.size": 400,
-    "partitioner": "random",
+    # "batch.size": 400,
+    # "partitioner": "random",
 }
 
 # create a producer - connect it to my local Kafka
