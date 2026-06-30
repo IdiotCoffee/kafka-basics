@@ -2,8 +2,8 @@ from confluent_kafka import Producer
 
 config = {
     "bootstrap.servers": "localhost:9092",
-    # "batch.size": 400,
-    # "partitioner": "random",
+    "batch.size": 400,
+    "partitioner": "random",
 }
 
 # create a producer - connect it to my local Kafka
@@ -27,7 +27,9 @@ for j in range(10):
         p.poll(0)
 
         # connect to a topic, convert the data into utf-8 string, use producerKafka as a callback and produce to the kafka topic.
-        p.produce("first_topic_ishaan", str(i).encode("utf-8"), callback=producerKafka)
+        p.produce(
+            "confluent_kafka_python", str(i).encode("utf-8"), callback=producerKafka
+        )
 
 # wait for outstanding messages to be delivered, and callbacks to producerKafka to be triggered.
 p.flush()

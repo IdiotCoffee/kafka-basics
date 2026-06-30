@@ -4,6 +4,7 @@ config = {
     "bootstrap.servers": "localhost:9092",
     "group.id": "kafka-python-consumer",
     "auto.offset.reset": "earliest",  # to start consuming from the earliest message, which was produced while consumer was NOT built.
+    "partition.assignment.strategy": "cooperative-sticky",  # set a partition rebalancing strategy
 }
 
 # create a consumer - connect it to my local Kafka
